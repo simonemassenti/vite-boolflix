@@ -38,7 +38,6 @@ export default {
 <template>
     <input type="search" v-model="movieSearched">
     <AppSearchbar @search="getMovie" />
-    
     <h1>Film</h1>
     <AppCard v-for="movie in store.movies" type="movie" :movie="movie"/>
 
@@ -46,4 +45,6 @@ export default {
     <AppCard v-for="serie in store.series" type="serie" :movie="serie"/>
 </template>
 
-<style></style>
+<style>
+@import "@fortawesome/fontawesome-free/css/all.css";
+</style>

@@ -13,6 +13,9 @@ export default {
     methods: {
         flag() {
             return new URL(`../assets/img/${this.movie.original_language}.png`, import.meta.url).href;
+        },
+        getImage() {
+            return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
         }
     }
 }
@@ -31,8 +34,20 @@ export default {
            Lingua: <img :src="flag()" alt="">
         </li>
         <li v-else>Lingua: {{ movie.original_language }}</li>
-        
-        <li>Voto: {{ movie.vote_average }}</li>
+
+        <li>Voto: {{ Math.round(movie.vote_average/2)  }}</li>
+
+        <li>
+            <span v-for="star in 5">
+                <i v-if="star <= Math.round(movie.vote_average/2)" class="fa-solid fa-star"></i>
+                <i v-else class="fa-regular fa-star"></i>
+            </span>
+        </li>
+
+        <li>
+            <img v-if="movie.poster_path" :src="getImage()" alt="">
+            <img v-else src="../assets/img/copertina-non-disponibile.jpg" alt="">
+        </li>
     </ul>
 </template>
 
