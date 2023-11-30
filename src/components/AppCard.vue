@@ -23,36 +23,45 @@ export default {
 </script>
 
 <template>
-    <ul>
-        <li v-if="type == 'movie'">Titolo: {{ movie.title }}</li>
-        <li v-else>Titolo: {{ movie.name }}</li>
-
-        <li v-if="type == 'movie'">Titolo Originale: {{ movie.original_title }}</li>
-        <li v-else>Titolo Originale: {{ movie.original_name }}</li>
-
-        <li v-if="flags.includes(movie.original_language)">
-           Lingua: <img :src="flag()" alt="">
+    <ul class="card">
+        <li class="info" v-if="type == 'movie'">
+            <span class="bold">Titolo:</span> {{ movie.title }}
         </li>
-        <li v-else>Lingua: {{ movie.original_language }}</li>
+        <li class="info" v-else>
+            <span class="bold">Titolo:</span> {{ movie.name }}
+        </li>
 
-        <li>Voto: {{ Math.round(movie.vote_average/2)  }}</li>
+        <li class="info" v-if="type == 'movie'">
+           <span class="bold"> Titolo Originale:</span> {{ movie.original_title }}
+        </li>
+        <li class="info" v-else>
+            <span class="bold">Titolo Originale:</span> {{ movie.original_name }}
+        </li>
 
-        <li>
+        <li class="info" v-if="flags.includes(movie.original_language)">
+            <img class="flag" :src="flag()" alt="">
+        </li>
+        <li class="info" v-else>
+            <span class="bold">Lingua:</span> {{ movie.original_language }}
+        </li>
+
+        <li class="info">
             <span v-for="star in 5">
                 <i v-if="star <= Math.round(movie.vote_average/2)" class="fa-solid fa-star"></i>
                 <i v-else class="fa-regular fa-star"></i>
             </span>
         </li>
 
+        <li class="info">
+            <span class="bold">Overview:</span> {{ movie.overview }}
+        </li>
+
         <li>
-            <img v-if="movie.poster_path" :src="getImage()" alt="">
-            <img v-else src="../assets/img/copertina-non-disponibile.jpg" alt="">
+            <img class="copertina" v-if="movie.poster_path" :src="getImage()" alt="">
+            <img class="copertina" v-else src="../assets/img/copertina-non-disponibile.jpg" alt="">
         </li>
     </ul>
 </template>
 
 <style scoped>
-    img {
-        width: 50px;
-    }
 </style>

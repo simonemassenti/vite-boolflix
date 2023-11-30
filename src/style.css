@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: black;
+    height: 70px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 15px;
+    color: red;
+}
+
+input {
+    height: 1.5rem;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+button {
+    padding: .5rem;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.card{
+    list-style-type: none;
+    width: 200px;
+}
+
+.info{
+    display: none;
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.copertina{
+    width: 100%;
+}
+
+.main-container {
+    background-color: rgb(38, 38, 38);
+}
+
+.main-container h1 {
+    color: red;
+    margin-left: 3rem;
+}
+
+.cards-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.card:hover {
+    height: 300px;
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    font-size: .8rem;
+    padding: .5rem;
+    overflow: scroll;
+}
+
+.card:hover .info{
+    display: block;
+}
+
+.card:hover .copertina{
+    display: none;
+}
+
+.flag{
+    width: 30px;
+}
+
+.fa-star {
+    color: goldenrod;
+}

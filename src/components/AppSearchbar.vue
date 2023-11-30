@@ -1,18 +1,10 @@
 <script>
-import { store } from '../store';
 export default {
-        data() {
-            return{
-                store
-            }
-        }
     }
 </script>
 
 <template>
-
-
-    <button @click="$emit('search')">Cerca</button>
+    <button @click="$emit('search')"> <i class="fa-solid fa-magnifying-glass"></i> Cerca</button>
 </template>
 
 <style scoped>
